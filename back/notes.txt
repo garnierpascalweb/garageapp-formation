@@ -1,0 +1,4 @@
+https://start.spring.io/
+
+Annotation @RestController pour definir un web service
+Annotation @RequestMapping("/path")
