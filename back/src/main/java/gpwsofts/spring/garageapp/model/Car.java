@@ -6,13 +6,31 @@ package gpwsofts.spring.garageapp.model;
  *
  */
 public class Car {
+	private int id;
 	private String model;
 	private String brand;
 	private int year;
 	private Color color;
 	
+	public Car(int id, String model, String brand, int year, Color color){
+		this.id = id;
+		this.model = model;
+		this.brand = brand;
+		this.year = year;
+		this.color = color;
+	}
 	
 	
+	
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+
+
+
 	public enum Color {
 		RED,BLUE,GREEN,YELLOW
 	}

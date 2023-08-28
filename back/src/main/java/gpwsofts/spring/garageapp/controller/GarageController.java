@@ -1,21 +1,28 @@
 package gpwsofts.spring.garageapp.controller;
 
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import gpwsofts.spring.garageapp.model.Car;
-import gpwsofts.spring.garageapp.model.Car.Color;
+import gpwsofts.spring.garageapp.service.GarageService;
 
 @RestController
 public class GarageController {
-
-	@RequestMapping("/car")
-	public Car getCar(){
-		Car car = new Car();
-		car.setBrand("Laguna");
-		car.setModel("Renaut");
-		car.setYear(2004);
-		car.setColor(Color.RED);
-		return car;
+	
+	@Autowired
+	private GarageService garageService;
+		
+	@RequestMapping("/cars")
+	public List<Car> getCars(){
+		return garageService.getCars();
+	}
+	
+	@RequestMapping("/car/{id}")
+	public Car getCar(@PathVariable int id){
+		return garageService.getCar(id);
 	}
 }
