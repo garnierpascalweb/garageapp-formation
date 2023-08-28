@@ -1,7 +1,7 @@
 https://start.spring.io/
 
 Annotation @RestController pour definir un web service
-Annotation @RequestMapping("/path")
+Annotation @RequestMapping("/path") ou mieux : @RequestMapping(method = method, value="path")
 Annotation @Service
 Annotation @Autowired : injection de dependance
 Annotation @PathVariable - @RequesTMapping /path/{id} @PathVariable 
