@@ -24,4 +24,8 @@ public class GarageService {
 	public Car getCar(int id){
 		return cars.stream().filter(car -> car.getId() == id).findFirst().orElse(null);
 	}
+	
+	public void deleteCar(int id){
+		cars.removeIf(car -> car.getId() == id);
+	}
 }

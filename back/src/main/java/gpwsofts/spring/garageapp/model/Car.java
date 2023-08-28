@@ -20,16 +20,12 @@ public class Car {
 		this.color = color;
 	}
 	
-	
-	
 	public int getId() {
 		return id;
 	}
 	public void setId(int id) {
 		this.id = id;
 	}
-
-
 
 	public enum Color {
 		RED,BLUE,GREEN,YELLOW
