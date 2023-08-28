@@ -5,3 +5,4 @@ Annotation @RequestMapping("/path") ou mieux : @RequestMapping(method = method, 
 Annotation @Service
 Annotation @Autowired : injection de dependance
 Annotation @PathVariable - @RequesTMapping /path/{id} @PathVariable 
+Annotation @RequestBody pour passer un objet avec la methode POST

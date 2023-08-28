@@ -25,6 +25,10 @@ public class GarageService {
 		return cars.stream().filter(car -> car.getId() == id).findFirst().orElse(null);
 	}
 	
+	public void addCar(Car car){
+		cars.add(car);
+	}
+	
 	public void deleteCar(int id){
 		cars.removeIf(car -> car.getId() == id);
 	}
