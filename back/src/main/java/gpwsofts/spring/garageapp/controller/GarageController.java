@@ -37,4 +37,10 @@ public class GarageController {
 	public void addCar(@RequestBody Car car){
 		garageService.addCar(car);
 	}
+	
+	@RequestMapping(method = RequestMethod.PUT, value="/cars/{id}")
+	public void updateCar(@PathVariable int id, @RequestBody Car car){
+		garageService.updateCar(id, car);
+	}
+
 }

@@ -29,6 +29,14 @@ public class GarageService {
 		cars.add(car);
 	}
 	
+	public void updateCar(int id, Car car){
+		cars.forEach(ccar -> {
+			if (ccar.getId() == id){
+				cars.set(id, car);
+			}
+		});
+	}
+	
 	public void deleteCar(int id){
 		cars.removeIf(car -> car.getId() == id);
 	}
