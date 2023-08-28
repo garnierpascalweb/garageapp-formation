@@ -13,7 +13,7 @@ public class Car {
 	
 	
 	
-	enum Color {
+	public enum Color {
 		RED,BLUE,GREEN,YELLOW
 	}
 	public String getModel() {
