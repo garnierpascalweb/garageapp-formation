@@ -1,8 +1,27 @@
 https://start.spring.io/
 
+Globalement
+Controller appelle Service appelle Repositiry
+
 Annotation @RestController pour definir un web service
 Annotation @RequestMapping("/path") ou mieux : @RequestMapping(method = method, value="path")
 Annotation @Service
 Annotation @Autowired : injection de dependance
 Annotation @PathVariable - @RequesTMapping /path/{id} @PathVariable 
 Annotation @RequestBody pour passer un objet avec la methode POST
+
+video 7 Repository
+Spring Data JPA (org.springframework.data.repository)
+pom.xml spring-boot-starter-data-jpa
+
+Creer un repository par une interface extends CrudRepository(?,Id)
+Injecter le Repository dans le Service
+
+
+
+
+
+
+
+curl -X POST  -H 'Content-Type: application/json' -H 'Accept: application/json' -d '{"id":4,"model":"SuperCinq","brand":"enault","year":1988,"color":"RED"}' http://localhost:8080/cars
+curl -X PUT  -H 'Content-Type: application/json' -H 'Accept: application/json' -d '{"id":4,"model":"SuperCinq","brand":"enault","year":2004,"color":"RED"}' http://localhost:8080/cars/4

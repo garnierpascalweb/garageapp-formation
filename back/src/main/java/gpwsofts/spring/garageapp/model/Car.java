@@ -1,14 +1,20 @@
 package gpwsofts.spring.garageapp.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+
 /**
  * 
  * @author Pascal
  *
  */
+// Entity (objet Database)
+@Entity
 public class Car {
 	private int id;
 	private String model;
 	private String brand;
+	@Column (name = "relesed_year")
 	private int year;
 	private Color color;
 	
