@@ -69,4 +69,18 @@ public class Car {
 		this.color = color;
 	}
 	
+	/**
+	 * Pour simple affichage dans les logs
+	 */
+	@Override
+	public String toString(){
+		return new StringBuilder()
+				.append("id ").append(id)
+				.append("- model ").append(model)
+				.append("- brand ").append(brand)
+				.append("- year ").append(year)
+				.append("- color ").append(color)
+				.toString();
+	}
+	
 }
