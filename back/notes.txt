@@ -1,17 +1,31 @@
-https://start.spring.io/
+Premiers pas avec SpringBoot
 
-Globalement
-Controller appelle Service appelle Repositiry
+En résumé, ce qui semble etre la bonne architecture
+Un controller annoté @RestController qui définit les méthodes de l'API (annotées @RequestMapping) en invoquant les methodes du service injecté par @Autowired
+Un service annoté (@Service) qui utilise appelle les methodes du repository injecté par @Autowired
+Un repository extends CrudRepository qui a déja toutes les methodes utiles aux opérations CRUD
 
+Creer un projet par https://start.spring.io/
+
+Le Controller
 Annotation @RestController pour definir un web service
 Annotation @RequestMapping("/path") ou mieux : @RequestMapping(method = method, value="path")
-Annotation @Service
-Annotation @Autowired : injection de dependance
 Annotation @PathVariable - @RequesTMapping /path/{id} @PathVariable 
 Annotation @RequestBody pour passer un objet avec la methode POST
 
-video 7 Repository
-Spring Data JPA (org.springframework.data.repository)
+Le Service
+Annotation @Service
+Annotation @Autowired : injection de dependance
+
+Le modele (ou entite)
+Annotation @Entity pour dire que cette classe est a l'image d'une table 
+Annotation @GeneratedValue pour indiquer que un id est auto increment
+La table est créée automatiquement si elle n'existe pas !
+La table prend le nom de la classe en lowerCase par defaut (sinon utiliser annotation @Table (name="")
+
+Le Repository (video 7 Repository)
+Creer un repository par une interface extends CrudRepository(?,Id) définissant les methodes utiles aux operations CRUD (et cest tout !)
+pom.xml : Spring Data JPA (org.springframework.data.repository)
 pom.xml spring-boot-starter-data-jpa
 Pour persister les données on a utilisé MySQL (mysql-connector-j 8.1 compatible avec mon my sql 5.7)
 config application.properties
@@ -21,28 +35,21 @@ spring.datasource.username=root
 spring.datasource.password=
 spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
 
-Entity
-Annotation @GeneratedValue pour indiquer que id est auto increment
-La table est créée automatiquement si elle n'existe pas !
-La table prend le nom de la classe en lowerCase par defaut (sinon utiliser annotation @Table (name="")
-
-Creer un repository par une interface extends CrudRepository(?,Id)
-Injecter le Repository dans le Service
 
 
-
-
-
-
-CREATE TABLE cars (
-    id int NOT NULL AUTO_INCREMENT,
-    model varchar(255) NOT NULL,
-    brand varchar(255) NOT NULL,
-    relesed_year varchar(255) NOT NULL,
-    color varchar(255) NOT NULL,   
-    PRIMARY KEY (id)
-);
-
-
+Quelques POST
 curl -X POST  -H 'Content-Type: application/json' -H 'Accept: application/json' -d '{"model":"SuperCinq","brand":"enault","year":1988,"color":"RED"}' http://localhost:8080/cars
 curl -X POST  -H 'Content-Type: application/json' -H 'Accept: application/json' -d '{"model":"307SW","brand":"Peugeot","year":2010,"color":"BLUE"}' http://localhost:8080/cars
+curl -X POST  -H 'Content-Type: application/json' -H 'Accept: application/json' -d '{"model":"306 Style","brand":"Peugeot","year":2003,"color":"BLUE"}' http://localhost:8080/cars
+curl -X POST  -H 'Content-Type: application/json' -H 'Accept: application/json' -d '{"model":"Twingo","brand":"Renault","year":1999,"color":"GREEN"}' http://localhost:8080/cars
+curl -X POST  -H 'Content-Type: application/json' -H 'Accept: application/json' -d '{"model":"21","brand":"Renault","year":1996,"color":"BLUE"}' http://localhost:8080/cars
+
+Quelques PUT
+Pour les PUT, il semblerait que le champ id (autoincrement) soit necessaire dans le json (bien que deja spécifié en PathVariable) sinon il cree une nouvelle ressource tel POST
+curl -X PUT  -H 'Content-Type: application/json' -H 'Accept: application/json' -d '{"id":4, "model":"Twingo","brand":"Renault","year":2006,"color":"GREEN"}' http://localhost:8080/cars/4
+
+Quelques DELETE
+curl -X DELETE  -H 'Content-Type: application/json' -H 'Accept: application/json' http://localhost:8080/car/4
+
+Un select
+curl -X GET  -H 'Content-Type: application/json' -H 'Accept: application/json' http://localhost:8080/cars/
