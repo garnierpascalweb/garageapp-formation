@@ -2,6 +2,7 @@ package gpwsofts.spring.garageapp.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 
 /**
  * 
@@ -11,6 +12,7 @@ import javax.persistence.Entity;
 // Entity (objet Database)
 @Entity
 public class Car {
+	@Id
 	private int id;
 	private String model;
 	private String brand;
