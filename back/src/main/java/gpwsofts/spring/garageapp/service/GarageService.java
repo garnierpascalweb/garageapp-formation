@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import gpwsofts.spring.garageapp.model.Car;
 import gpwsofts.spring.garageapp.repository.GarageRepository;
 
+
 @Service
 public class GarageService {
 	
