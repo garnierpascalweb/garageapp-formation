@@ -1,4 +1,5 @@
-Premiers pas avec SpringBoot
+Source https://www.youtube.com/playlist?list=PLiptPVzCHOl52onYxgo8hb-D0UzcUMcVY
+Premiers pas avec SpringBoot 
 
 En résumé, ce qui semble etre la bonne architecture
 Un controller annoté @RestController qui définit les méthodes de l'API (annotées @RequestMapping) en invoquant les methodes du service injecté par @Autowired
@@ -53,3 +54,12 @@ curl -X DELETE  -H 'Content-Type: application/json' -H 'Accept: application/json
 
 Un select
 curl -X GET  -H 'Content-Type: application/json' -H 'Accept: application/json' http://localhost:8080/cars/
+
+
+## PARTIE FRONT (tres succinte dans la video)
+creation d'une application angular
+ng new garage-app
+creation d'un service
+ng generate service garage
+(perso) creation dun composant cars
+simple affichage des données en base, pas de post put delete
